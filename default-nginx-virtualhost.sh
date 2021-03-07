@@ -9,8 +9,8 @@ domain=$1
 rootPath=$2
 sitesEnable='/etc/nginx/sites-enabled/'
 sitesAvailable='/etc/nginx/sites-available/'
-serverRoot='/srv/'
-domainRegex="^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$"
+serverRoot='/var/www/sites/'
+#domainRegex="^[5Da-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{3,}$"
 
 while [ "$domain" = "" ]
 do
@@ -18,11 +18,11 @@ do
 	read domain
 done
 
-until [[ $domain =~ $domainRegex ]]
-do
-	echo "Enter valid domain:"
-	read domain
-done
+#until [[ $domain =~ $domainRegex ]]
+#do
+#	echo "Enter valid domain:"
+#	read domain
+#done
 
 if [ -e $sitesAvailable$domain ]; then
 	echo "This domain already exists.\nPlease Try Another one"
